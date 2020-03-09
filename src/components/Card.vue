@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import rotateElement from "../helpers/rotateElement";
+
 export default {
   name: "HelloWorld",
   data() {
@@ -24,19 +26,16 @@ export default {
       // Mouse position relative to the card
       const { offsetX, offsetY } = e;
       // Card measurements
-      const cardHeight = e.target.clientHeight;
-      const cardWidth = e.target.clientWidth;
+      const { clientWidth, clientHeight } = e.target;
+      const { x, y } = rotateElement({
+        offsetX,
+        offsetY,
+        width: clientWidth,
+        height: clientHeight
+      });
 
-      // Rotation values
-      const rotateX = this.getRotateValue(offsetY, cardHeight);
-      const rotateY = this.getRotateValue(offsetX, cardWidth);
-
-      this.x = rotateX;
-      this.y = rotateY;
-    },
-    getRotateValue(offset, length) {
-      const middle = length / 2;
-      return (offset * 100) / middle / 10 - 10;
+      this.x = x;
+      this.y = y;
     },
     handleMouseLeave() {
       this.x = 0;
