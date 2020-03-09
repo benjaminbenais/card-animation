@@ -33,7 +33,8 @@ export default {
         offsetX,
         offsetY,
         width: clientWidth,
-        height: clientHeight
+        height: clientHeight,
+        rotationValue: 30
       });
 
       // Set rotation values
