@@ -16,8 +16,7 @@ export default {
   data() {
     return {
       x: 0,
-      y: 0,
-      scale: 1
+      y: 0
     };
   },
   methods: {
