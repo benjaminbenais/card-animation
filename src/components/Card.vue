@@ -27,6 +27,8 @@ export default {
       const { offsetX, offsetY } = e;
       // Card measurements
       const { clientWidth, clientHeight } = e.target;
+
+      // Get rotation values
       const { x, y } = rotateElement({
         offsetX,
         offsetY,
@@ -34,6 +36,7 @@ export default {
         height: clientHeight
       });
 
+      // Set rotation values
       this.x = x;
       this.y = y;
     },
